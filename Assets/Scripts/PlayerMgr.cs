@@ -37,12 +37,12 @@ public class PlayerMgr : MonoBehaviour
     void Update()
     {
 		// Adjust acceleration
-		deltaSpeed = Input.GetAxis("Acceleration"); // {-1, 0, 1}
+		deltaSpeed = Input.GetAxis("Vertical"); // {-1, 0, 1}
 		desiredSpeed += deltaSpeed;
 		desiredSpeed = Utils.Clamp(desiredSpeed, minSpeed, maxSpeed);
 
 		// Adjust yaw
-		deltaHeading = 20 * Input.GetAxis("Yaw");	// {-10, 0, 10}
+		deltaHeading = 20 * Input.GetAxis("Horizontal");	// {-10, 0, 10}
 		heading += deltaHeading * Time.deltaTime;
 		heading = Utils.DegreeClamp(heading);
 

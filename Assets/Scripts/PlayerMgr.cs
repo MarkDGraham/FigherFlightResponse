@@ -53,5 +53,11 @@ public class PlayerMgr : MonoBehaviour
 		pitchNode.transform.localEulerAngles = currentEuler;
 
 		// fire weapon
-    }
+
+		// exit application
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			Application.Quit();
+		}
+	}
 }

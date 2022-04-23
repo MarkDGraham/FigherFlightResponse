@@ -34,8 +34,7 @@ public class PlayerMgr : MonoBehaviour
 	public float weaponRange;
 	public bool gunFlare;
 	public int health = 100;
-
-	private Camera mainCam;
+	
 	private WaitForSeconds shotDuration = new WaitForSeconds(0.02f);
 	private AudioSource gunAudio;
 	private float nextFire;
@@ -51,7 +50,6 @@ public class PlayerMgr : MonoBehaviour
 	void Start()
     {
 		gunAudio = GetComponent<AudioSource>();
-		mainCam = GetComponentInParent<Camera>();
     }
 
     // Update is called once per frame

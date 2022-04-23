@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ProjectilePrefab: {fileID: 8335276438215548870, guid: 80fa4285cb9ce0f49a83ef667e0f0d8e, type: 3}
+  predPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &3368734306080602930
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,14 +18,4 @@ public static class Utils
 			value = max;
 		return value;
 	}
-
-	public static float DegreeClamp(float angle)
-	{
-		if (angle >= 360)
-			angle -= 360;
-		else if (angle < 0)
-			angle += 360;
-
-		return angle;
-	}
 }

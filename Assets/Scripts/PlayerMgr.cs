@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class PlayerMgr : MonoBehaviour
 {
-	/*public static PlayerMgr inst;
-	private void Awake()
-	{
-		inst = this;
-	}*/
-
 	// Changing movement variables
 	public Vector3 position;
 	public Vector3 velocity = Vector3.zero;
@@ -33,6 +27,7 @@ public class PlayerMgr : MonoBehaviour
 	public float fireRate;
 	public float weaponRange;
 	public bool gunFlare;
+	public bool endGame = false;
 	
 	private WaitForSeconds shotDuration = new WaitForSeconds(0.1f);
 	private AudioSource gunAudio;
@@ -106,5 +101,16 @@ public class PlayerMgr : MonoBehaviour
 		gunFlare = true;
 		yield return shotDuration;
 		gunFlare = false;
+	}
+
+	public void EndLevel() {
+		Debug.Log("End level reached");
+		endGame = true;
+		StartCoroutine(EndCountdown());
+	}
+
+	private IEnumerator EndCountdown() {
+		yield return new WaitForSeconds(3);
+		UnityEngine.SceneManagement.SceneManager.LoadScene("Main Menu");
 	}
 }

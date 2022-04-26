@@ -19,6 +19,7 @@ public class UIMgr : MonoBehaviour
 	public Image cockpit;
 	public Image crosshair;
 	public Image muzzleFlare;
+	public Image victory;
 
 	// Start is called before the first frame update
 	void Start()
@@ -33,5 +34,6 @@ public class UIMgr : MonoBehaviour
     {
 		hullText.text = playerEntity.health.ToString("F2");
 		muzzleFlare.enabled = player.gunFlare;
+		victory.enabled = player.endGame;
     }
 }

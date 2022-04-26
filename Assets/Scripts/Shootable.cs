@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Shootable : MonoBehaviour
 {
-	public int currentHealth;
+	public Entity381 rootObj;
+	public float defense;		// between 0-1
 	
 	public void Damage(int damageTaken) {
 		Debug.Log("Damage taken");
-		currentHealth -= damageTaken;
-		if (currentHealth <= 0) {
-			gameObject.SetActive(false);
+		rootObj.health -= damageTaken - (damageTaken * defense);
+		if (rootObj.health <= 0) {
+			rootObj.Kill();
 		}
 	}
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4434154677422620319}
   - component: {fileID: 4434154677422620318}
   - component: {fileID: 4434154677422620317}
+  - component: {fileID: 1597173146205934221}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -62,7 +63,6 @@ MonoBehaviour:
   fireRate: 0.25
   weaponRange: 366
   gunFlare: 0
-  health: 100
 --- !u!114 &4434154677422620318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,6 +172,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1597173146205934221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4298058167049611200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52c33d8a80044654783c877ed148f94f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 50
+  thisObject: {fileID: 4298058167049611200}
 --- !u!1 &4434154677616162346
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,6 +280,7 @@ GameObject:
   - component: {fileID: 4434154677643725792}
   - component: {fileID: 4434154677643725806}
   - component: {fileID: 4434154677643725807}
+  - component: {fileID: 5430978966638837036}
   m_Layer: 0
   m_Name: Fuselage
   m_TagString: Untagged
@@ -308,6 +323,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5430978966638837036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4434154677643725793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f792719a8dce9f498463b6dba3614ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rootObj: {fileID: 1597173146205934221}
+  defense: 0.25
 --- !u!1 &4434154678440366816
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,6 +523,7 @@ GameObject:
   - component: {fileID: 4434154678827146514}
   - component: {fileID: 4434154678827146512}
   - component: {fileID: 4434154678827146513}
+  - component: {fileID: 3001541580816916228}
   m_Layer: 0
   m_Name: Wingspan
   m_TagString: Untagged
@@ -536,3 +566,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3001541580816916228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4434154678827146515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f792719a8dce9f498463b6dba3614ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rootObj: {fileID: 1597173146205934221}
+  defense: 0.5

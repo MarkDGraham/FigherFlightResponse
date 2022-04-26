@@ -12,6 +12,7 @@ public class UIMgr : MonoBehaviour
 	}
 
 	GameObject playerObject;
+	Entity381 playerEntity;
 	PlayerMgr player;
 
 	public Text hullText;
@@ -24,12 +25,13 @@ public class UIMgr : MonoBehaviour
     {
 		playerObject = GameObject.Find("PlayerController");
 		player = playerObject.GetComponent<PlayerMgr>();
+		playerEntity = playerObject.GetComponent<Entity381>();
 	}
 
     // Update is called once per frame
     void Update()
     {
-		hullText.text = player.health.ToString("F1");
+		hullText.text = playerEntity.health.ToString("F2");
 		muzzleFlare.enabled = player.gunFlare;
     }
 }

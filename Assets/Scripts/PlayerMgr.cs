@@ -33,9 +33,8 @@ public class PlayerMgr : MonoBehaviour
 	public float fireRate;
 	public float weaponRange;
 	public bool gunFlare;
-	public int health = 100;
 	
-	private WaitForSeconds shotDuration = new WaitForSeconds(0.02f);
+	private WaitForSeconds shotDuration = new WaitForSeconds(0.1f);
 	private AudioSource gunAudio;
 	private float nextFire;
 
@@ -72,7 +71,7 @@ public class PlayerMgr : MonoBehaviour
 		rotateNode.transform.Rotate(currentRotation);
 
 		//weapon fire	[credit: https://www.youtube.com/watch?v=AGd16aspnPA]
-		if (Input.GetButtonDown("Fire1") && Time.time > nextFire) {
+		if (Input.GetAxis("Fire1") > 0 && Time.time > nextFire) {
 			nextFire = Time.time + fireRate;
 
 			StartCoroutine(ShotEffect());

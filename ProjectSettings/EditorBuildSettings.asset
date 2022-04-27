@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Alpha.unity
     guid: ac91ab7426380784989e81611c6f2f04
+  - enabled: 1
+    path: Assets/Scenes/Contributions.unity
+    guid: b2ea29a4d49599047bccfc3635a9d1d6
+  - enabled: 1
+    path: Assets/Scenes/Controls.unity
+    guid: efcb44557a1c42a43828c158a1f78fa0
   m_configObjects: {}

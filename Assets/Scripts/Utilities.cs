@@ -28,4 +28,16 @@ public static class Utils
 
 		return angle;
 	}
+
+	public static float AngleDiffPosNeg(float a, float b)
+	{
+		float diff = a - b;
+		if (diff > 180)
+			return diff - 360;
+		else if (diff < -180)
+			return diff + 360;
+
+		return diff;
+	}
+
 }

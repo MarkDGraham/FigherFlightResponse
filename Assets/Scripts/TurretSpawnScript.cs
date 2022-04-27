@@ -19,7 +19,7 @@ public class TurretSpawnScript : MonoBehaviour
     private float distance, relativeSpeed, interceptTime, range;
     private float targetRange = Mathf.Infinity;
     private Vector3 predPosition = Vector3.zero;
-    private float shellSpeed = 10.0f;
+    private float shellSpeed = 20.0f;
     public float rateOfFire = 1.5f;
     
     // Start is called before the first frame update

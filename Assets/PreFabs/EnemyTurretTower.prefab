@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 412237014383672780}
   - component: {fileID: 7480898815150568818}
   - component: {fileID: 8985514833528733989}
+  - component: {fileID: 1032356246}
   m_Layer: 0
   m_Name: TowerStand
   m_TagString: Untagged
@@ -95,6 +96,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1032356246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976361184473950699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f792719a8dce9f498463b6dba3614ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rootObj: {fileID: 0}
+  defense: 0
 --- !u!1 &1266716147940981191
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,6 +119,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7442887458730281874}
+  - component: {fileID: 328028792750497226}
   m_Layer: 0
   m_Name: EnemyTurretTower
   m_TagString: Untagged
@@ -127,6 +143,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &328028792750497226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266716147940981191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52c33d8a80044654783c877ed148f94f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 15
+  thisObject: {fileID: 1266716147940981191}
 --- !u!1 &3102722324806720870
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,6 +266,7 @@ GameObject:
   - component: {fileID: 870247120711694556}
   - component: {fileID: 2336569101002239359}
   - component: {fileID: 5665369054059642388}
+  - component: {fileID: 320649451}
   m_Layer: 0
   m_Name: TurretTop
   m_TagString: Untagged
@@ -338,6 +369,20 @@ MonoBehaviour:
   heading: 0
   eulerRotation: {x: 0, y: 0, z: 0}
   diff: {x: 0, y: 0, z: 0}
+--- !u!114 &320649451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3217887015731925235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f792719a8dce9f498463b6dba3614ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rootObj: {fileID: 0}
+  defense: 0
 --- !u!1 &5665369053622893809
 GameObject:
   m_ObjectHideFlags: 0
@@ -381,8 +426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8139a60b93fcd314082ef160bc241878, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 9112981764866980367, guid: 3910c7b0526ec8642aa257804c18cdcf,
-    type: 3}
+  projectile: {fileID: 9112981764866980367, guid: 3910c7b0526ec8642aa257804c18cdcf, type: 3}
   playerScript: {fileID: 0}
   turretRotation: {fileID: 0}
   rateOfFire: 1.5

@@ -16,15 +16,13 @@ public class UIMgr : MonoBehaviour
 	PlayerMgr player;
 
 	public Text hullText;
-	public Image cockpit;
-	public Image crosshair;
-	public Image muzzleFlare;
+	public Image muzzleFlash;
 	public Image victory;
 
 	// Start is called before the first frame update
 	void Start()
     {
-		playerObject = GameObject.Find("PlayerController");
+		playerObject = GameObject.Find("Player");
 		player = playerObject.GetComponent<PlayerMgr>();
 		playerEntity = playerObject.GetComponent<Entity381>();
 	}
@@ -32,8 +30,8 @@ public class UIMgr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		hullText.text = playerEntity.health.ToString("F2");
-		muzzleFlare.enabled = player.gunFlare;
+		hullText.text = playerEntity.health.ToString("F1");
+		muzzleFlash.enabled = player.gunFlare;
 		victory.enabled = player.endGame;
     }
 }

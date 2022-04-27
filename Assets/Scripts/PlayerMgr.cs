@@ -110,7 +110,7 @@ public class PlayerMgr : MonoBehaviour
 	}
 
 	private IEnumerator EndCountdown() {
-		yield return new WaitForSeconds(3);
+		yield return new WaitForSeconds(1.5f);
 		UnityEngine.SceneManagement.SceneManager.LoadScene("Main Menu");
 	}
 }

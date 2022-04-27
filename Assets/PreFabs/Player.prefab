@@ -59,10 +59,11 @@ MonoBehaviour:
   pitchSpeed: 75
   rollSpeed: 50
   rotateNode: {fileID: 4434154678569258830}
-  gunDamage: 1
+  gunDamage: 10
   fireRate: 0.25
   weaponRange: 366
   gunFlare: 0
+  endGame: 0
 --- !u!114 &4434154677422620318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52c33d8a80044654783c877ed148f94f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
+  health: 100
   thisObject: {fileID: 4298058167049611200}
 --- !u!1 &4434154677616162346
 GameObject:

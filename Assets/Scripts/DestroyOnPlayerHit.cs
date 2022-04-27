@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DestroyOnPlayerHit : MonoBehaviour
 {
-    public float spawnTimer = 15.0f;
+    public float spawnTimer = 5.0f;
     public Shootable shooter;
     public int gunDamage = 20;
 
@@ -25,8 +25,8 @@ public class DestroyOnPlayerHit : MonoBehaviour
             if(shooter != null)
             {
                 shooter.Damage(gunDamage);
-            }
-            Destroy(gameObject);
-        }
-    }
+			}
+			Destroy(gameObject);
+		}
+	}
 }

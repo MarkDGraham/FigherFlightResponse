@@ -19,7 +19,7 @@ public class TurretSpawnScript : MonoBehaviour
     private float distance, relativeSpeed, interceptTime, range;
     private float targetRange = Mathf.Infinity;
     private Vector3 predPosition = Vector3.zero;
-    private float shellSpeed = 20.0f;
+    private float shellSpeed = 60.0f;
     public float rateOfFire = 1.5f;
     
     // Start is called before the first frame update
@@ -48,11 +48,10 @@ public class TurretSpawnScript : MonoBehaviour
 
     }
 
-
     public Vector3 GetPredictionPosition()
     { 
         distance = (player.transform.position - transform.position).magnitude;
-        relativeSpeed = Mathf.Abs((playerScript.velocity).magnitude - shellSpeed);
+        relativeSpeed = Mathf.Abs(playerScript.speed - shellSpeed);
         interceptTime = distance / relativeSpeed;
 
         predPosition = player.transform.position + (playerScript.velocity * interceptTime);

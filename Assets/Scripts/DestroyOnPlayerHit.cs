@@ -5,6 +5,8 @@ using UnityEngine;
 public class DestroyOnPlayerHit : MonoBehaviour
 {
     public float spawnTimer = 15.0f;
+    public Shootable shooter;
+    public int gunDamage = 20;
 
     void Update()
     {
@@ -19,10 +21,12 @@ public class DestroyOnPlayerHit : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            shooter = other.gameObject.GetComponent<Shootable>();
+            if(shooter != null)
+            {
+                shooter.Damage(gunDamage);
+            }
             Destroy(gameObject);
         }
-
-
-
     }
 }

@@ -9,12 +9,19 @@ public class Entity381 : MonoBehaviour
 
 	public void Kill()	{
 		// maybe put an explosion here?
-		thisObject.SetActive(false);
+		
 		if (thisObject.tag == "Finish") {
-			GameObject playerObject = GameObject.Find("PlayerController");
+			GameObject playerObject = GameObject.Find("Player");
 			PlayerMgr player = playerObject.GetComponent<PlayerMgr>();
-			Debug.Log(playerObject.name);
 			player.EndLevel();
 		}
+
+		if (thisObject.tag == "Player")
+		{
+			GameObject playerObject = GameObject.Find("Player");
+			PlayerMgr player = playerObject.GetComponent<PlayerMgr>();
+			player.EndLevel();
+		}
+		thisObject.SetActive(false);
 	}
 }

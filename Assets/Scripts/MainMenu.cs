@@ -8,7 +8,6 @@ public class MainMenu : MonoBehaviour
 
 	public void PlayButton() {
 		UnityEngine.SceneManagement.SceneManager.LoadScene("Alpha");
-		Debug.Log("Play Button Clicked");
 	}
 
 	public void QuitButton() {

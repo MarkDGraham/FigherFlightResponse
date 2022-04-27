@@ -381,7 +381,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8139a60b93fcd314082ef160bc241878, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 9112981764866980367, guid: 3910c7b0526ec8642aa257804c18cdcf, type: 3}
+  projectile: {fileID: 9112981764866980367, guid: 3910c7b0526ec8642aa257804c18cdcf,
+    type: 3}
   playerScript: {fileID: 0}
   turretRotation: {fileID: 0}
   rateOfFire: 1.5

@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerPhx : MonoBehaviour
 {
 	public PlayerMgr player;
-	Vector3 eulerRotation = Vector3.zero;
 
     // Start is called before the first frame update
     void Start()
@@ -26,15 +25,11 @@ public class PlayerPhx : MonoBehaviour
 			player.speed -= player.acceleration * Time.deltaTime;
 		player.speed = Utils.Clamp(player.speed, player.minSpeed, player.maxSpeed);
 
-		// adjust position/rotation
-		player.velocity.x = Mathf.Sin(player.heading * Mathf.Deg2Rad) * player.speed;
-		player.velocity.z = Mathf.Cos(player.heading * Mathf.Deg2Rad) * player.speed;
+		// adjust position/velocity
+		player.velocity = Camera.main.transform.TransformDirection(Vector3.forward) * player.speed;
 
 		player.position += player.velocity * Time.deltaTime;
 
 		transform.localPosition = player.position;
-
-		eulerRotation.y = player.heading;
-		transform.localEulerAngles = eulerRotation;
     }
 }

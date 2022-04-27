@@ -1,0 +1,31 @@
+# Max2Mtl Version 4.0 Mar 10th, 2001
+#
+# Multi/Sub Magnfglass (3) to come 
+#
+newmtl Black_paint
+Ka  0.0 0.0 0.0
+Kd  0.1 0.1 0.1
+Ks  0.1 0.1 0.1
+d  1.0
+Ns  10.0
+illum 2
+#
+newmtl Metall
+Ka  0.0 0.0 0.0
+Kd  0.5 0.5 0.5
+Ks  0.8 0.8 0.8
+d  1.0
+Ns  10.0
+illum 2
+#
+newmtl Loop_glass
+Ka  0.0 0.0 0.0
+Kd  0.8 1.0 1.0
+Ks  0.1 0.1 0.1
+d  0.1
+Ns  10.0
+illum 2
+#
+# Multi/Sub Magnfglass done 
+#
+# EOF

@@ -10,6 +10,16 @@ public class MainMenu : MonoBehaviour
 		UnityEngine.SceneManagement.SceneManager.LoadScene("Alpha");
 	}
 
+	public void ContributionsButton()
+	{
+		UnityEngine.SceneManagement.SceneManager.LoadScene("Contributions");
+	}
+
+	public void ControlsButton()
+	{
+		UnityEngine.SceneManagement.SceneManager.LoadScene("Controls");
+	}
+
 	public void QuitButton() {
 		Application.Quit();
 	}

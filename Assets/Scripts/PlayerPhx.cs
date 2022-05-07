@@ -8,9 +8,9 @@ public class PlayerPhx : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-		player.position = transform.localPosition;
+	{
 		player = GetComponentInParent<PlayerMgr>();
+		player.position = transform.localPosition;
     }
 
     // Update is called once per frame
@@ -26,7 +26,7 @@ public class PlayerPhx : MonoBehaviour
 		player.speed = Utils.Clamp(player.speed, player.minSpeed, player.maxSpeed);
 
 		// adjust position/velocity
-		player.velocity = Camera.main.transform.TransformDirection(Vector3.forward) * player.speed;
+		player.velocity = player.transform.forward * player.speed;
 
 		player.position += player.velocity * Time.deltaTime;
 

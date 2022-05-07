@@ -238,9 +238,9 @@ RectTransform:
   m_Father: {fileID: 1203731982}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 323.5}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -18.5}
   m_SizeDelta: {x: 229.99298, y: 78.83179}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &446969005
@@ -276,7 +276,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Contributions
+  m_Text: Credits
 --- !u!222 &446969006
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -761,9 +761,9 @@ RectTransform:
   m_Father: {fileID: 1203731982}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -210, y: 171.71002}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -210, y: -170.28998}
   m_SizeDelta: {x: 384, y: 192.41998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1562883569
@@ -799,7 +799,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "  John:\n    - Player Controller\n    - Player UI\n    - Final Boss\n   
+  m_Text: "  John:\n    - Player Controller\n    - Player UI\n    - Target Objective\n   
     - Main Menu\n    - Audio (Accelerator sfx)"
 --- !u!222 &1562883570
 CanvasRenderer:
@@ -1000,9 +1000,9 @@ RectTransform:
   m_Father: {fileID: 1203731982}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 210, y: 171.71002}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 210, y: -170.28998}
   m_SizeDelta: {x: 384, y: 192.41998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1927472097
@@ -1038,7 +1038,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "  Mark:\n    - AI (Turrets)\n    - Contributes Menu\n    - Controls Menu\n   
+  m_Text: "  Mark:\n    - Enemy AI/Design\n    - Credits Menu\n    - Controls Menu\n   
     - Audio (Shoot sfx)"
 --- !u!222 &1927472098
 CanvasRenderer:

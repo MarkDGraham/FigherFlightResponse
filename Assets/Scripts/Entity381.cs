@@ -18,9 +18,7 @@ public class Entity381 : MonoBehaviour
 
 		if (thisObject.tag == "Player")
 		{
-			GameObject playerObject = GameObject.Find("Player");
-			PlayerMgr player = playerObject.GetComponent<PlayerMgr>();
-			player.EndLevel();
+			UnityEngine.SceneManagement.SceneManager.LoadScene("GameOverDestroyed");
 		}
 		thisObject.SetActive(false);
 	}

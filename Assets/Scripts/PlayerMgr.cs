@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMgr : MonoBehaviour
 {
+	public PlayerSfx playerSound;
+
 	// Changing movement variables
 	public Vector3 position;
 	public Vector3 velocity = Vector3.zero;
@@ -22,16 +24,29 @@ public class PlayerMgr : MonoBehaviour
 
 	public GameObject rotateNode;
 
+	// UI Info variables
+	public bool gunFlare;
+	public float pitchAngle;
+	public float rollAngle;
+	public float headingAngle;
+	public float targetAngle;
+	public float altitude;
+	public BoxCollider playerBox;
+	public BoxCollider AWOLBox;
+
+	private GameObject targetObject;
+	private Vector3 targetDist;
+
 	// Weapon variables
 	public int gunDamage;
 	public float fireRate;
 	public float weaponRange;
-	public bool gunFlare;
-	public bool endGame = false;
 	
 	private WaitForSeconds shotDuration = new WaitForSeconds(0.1f);
-	private AudioSource gunAudio;
 	private float nextFire;
+
+	// Collision variables
+	public bool endGame = false;
 
 	// transitional variables
 	float deltaSpeed;
@@ -43,7 +58,8 @@ public class PlayerMgr : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
-		gunAudio = GetComponent<AudioSource>();
+		playerSound = GetComponent<PlayerSfx>();
+		targetObject = GameObject.FindGameObjectWithTag("Finish");	//boss enemies have this tag
     }
 
     // Update is called once per frame
@@ -70,12 +86,11 @@ public class PlayerMgr : MonoBehaviour
 			nextFire = Time.time + fireRate;
 
 			StartCoroutine(ShotEffect());
-
-			//Camera.main.transform.position, Camera.main.transform.TransformDirection(Vector3.forward) * weaponRange
+			
 			RaycastHit hit;
 
 			if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, weaponRange)) {
-				Debug.Log(hit.collider.name);	// what did we hit?
+				//Debug.Log(hit.collider.name);	// what did we hit?
 
 				//Damage target
 				Shootable targetHealth = hit.collider.GetComponent<Shootable>();
@@ -88,15 +103,21 @@ public class PlayerMgr : MonoBehaviour
 			
 		}
 
+		//Game Over state: leaving playable area
+		if (!playerBox.bounds.Intersects(AWOLBox.bounds))
+			UnityEngine.SceneManagement.SceneManager.LoadScene("GameOverAWOL");		
+
 		// exit application
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{
 			Application.Quit();
 		}
+
+		getUIInfo();
 	}
 
 	private IEnumerator ShotEffect() {
-		gunAudio.Play();
+		playerSound.m_GunSource.Play();
 
 		gunFlare = true;
 		yield return shotDuration;
@@ -112,5 +133,32 @@ public class PlayerMgr : MonoBehaviour
 	private IEnumerator EndCountdown() {
 		yield return new WaitForSeconds(1.5f);
 		UnityEngine.SceneManagement.SceneManager.LoadScene("Main Menu");
+	}
+
+	private void getUIInfo() {
+		var flatForward = transform.forward;
+		flatForward.y = 0;
+		if(flatForward.sqrMagnitude > 0) {
+			// Grab/convert the pitch angle
+			flatForward.Normalize();
+			var localFlatForward = transform.InverseTransformDirection(flatForward);
+			pitchAngle = Mathf.Atan2(localFlatForward.y, localFlatForward.z);
+			// Atan2's result has different negation depending on which quadrant we're facing in
+			pitchAngle = Mathf.Abs(pitchAngle * Mathf.Rad2Deg);
+			// To correct this, we make pitch angle positive, and only negate it if we're facing down
+			if (transform.forward.y < 0)
+				pitchAngle *= -1;
+			// Grab the heading
+			headingAngle = Mathf.Atan2(transform.forward.x, transform.forward.z) * Mathf.Rad2Deg;
+			// Grab the roll angle
+			var flatRight = Vector3.Cross(Vector3.up, flatForward);
+			var localFlatRight = transform.InverseTransformDirection(flatRight);
+			rollAngle = Mathf.Atan2(localFlatRight.y, localFlatRight.x) * Mathf.Rad2Deg;
+		}
+		// Get the angle to the target
+		targetDist = (targetObject.transform.position - position).normalized;
+		targetAngle = Vector3.SignedAngle(targetDist, transform.forward, Vector3.up);
+
+		altitude = transform.position.y * 5;
 	}
 }

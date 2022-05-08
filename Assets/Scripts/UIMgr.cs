@@ -14,10 +14,21 @@ public class UIMgr : MonoBehaviour
 	GameObject playerObject;
 	Entity381 playerEntity;
 	PlayerMgr player;
+	public BoxCollider RegionBox;
 
-	public Text hullText;
-	public Image muzzleFlash;
-	public Image victory;
+	public Text hullText;       //display hull amount
+	public Text speedText;
+	public Text pitchText;
+	public Text altitudeText;
+	public Image muzzleFlash;   //muzzle flash
+	public Image compass;
+	public Image target;
+	public Image attitude;
+	public Image victory;       // victory popup
+	public Image warning;
+
+	float playerSpeed;
+	string pitchAngleText;
 
 	// Start is called before the first frame update
 	void Start()
@@ -30,8 +41,20 @@ public class UIMgr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		hullText.text = playerEntity.health.ToString("F1");
+		// update text fields: Hull, Speed, Pitch, Altitude
+		hullText.text = playerEntity.health.ToString("F0");
+		playerSpeed = player.speed * 5 * 1.944f;				//conversion to 1/5th scale, and conversion from meters per second to knots
+		speedText.text = playerSpeed.ToString("F0") + " kts";
+		pitchText.text = player.pitchAngle.ToString("F0");
+		altitudeText.text = player.altitude.ToString("F0");
+
+		//Update images: Muzzle flash, Compass, Target, Attitude, Victory
 		muzzleFlash.enabled = player.gunFlare;
+		warning.enabled = !player.playerBox.bounds.Intersects(RegionBox.bounds);
+		compass.transform.rotation = Quaternion.Euler(0, 0, player.headingAngle);
+		target.transform.rotation = Quaternion.Euler(0, 0, player.targetAngle);
+		attitude.transform.rotation = Quaternion.Euler(0, 0, player.rollAngle);
 		victory.enabled = player.endGame;
+
     }
 }

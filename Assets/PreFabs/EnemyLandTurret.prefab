@@ -72,8 +72,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1587243302497044693}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.8660003, y: 4.146, z: -0.6640005}
-  m_LocalScale: {x: 1.5000001, y: 1, z: 1.5000001}
+  m_LocalPosition: {x: 1.8660003, y: 4.2, z: -0.6640005}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3660253091053124607}
   m_RootOrder: 4
@@ -93,6 +93,12 @@ MonoBehaviour:
   projectile: {fileID: 9112981764866980367, guid: 3910c7b0526ec8642aa257804c18cdcf, type: 3}
   playerScript: {fileID: 0}
   turretRotation: {fileID: 0}
+  distance: 0
+  relativeSpeed: 0
+  interceptTime: 0
+  range: 0
+  predPosition: {x: 0, y: 0, z: 0}
+  shellVelocity: {x: 0, y: 0, z: 0}
   rateOfFire: 1.5
 --- !u!1 &3102722324806720870
 GameObject:
@@ -185,9 +191,9 @@ CapsuleCollider:
   m_GameObject: {fileID: 3102722324806720870}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5000001
-  m_Height: 2
+  m_Height: 1.5
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &5115855067916799822
@@ -281,9 +287,9 @@ CapsuleCollider:
   m_GameObject: {fileID: 5115855067916799822}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5000001
-  m_Height: 2
+  m_Height: 1.5
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &5665369053622893809
@@ -310,9 +316,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5665369053622893809}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.866, y: 4.146, z: 0.63}
-  m_LocalScale: {x: 1.5000001, y: 1, z: 1.5000001}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.8660034, y: 4.200001, z: 0.6299991}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3660253091053124607}
   m_RootOrder: 2
@@ -332,6 +338,12 @@ MonoBehaviour:
   projectile: {fileID: 9112981764866980367, guid: 3910c7b0526ec8642aa257804c18cdcf, type: 3}
   playerScript: {fileID: 0}
   turretRotation: {fileID: 0}
+  distance: 0
+  relativeSpeed: 0
+  interceptTime: 0
+  range: 0
+  predPosition: {x: 0, y: 0, z: 0}
+  shellVelocity: {x: 0, y: 0, z: 0}
   rateOfFire: 1.5
 --- !u!1001 &3792604200406031436
 PrefabInstance:
@@ -416,6 +428,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e147aabd3764ec94d8aa678ad9eef796, type: 3}
   m_PrefabInstance: {fileID: 3792604200406031436}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &5849599701244476904
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4063197653663883549}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 0.25, z: 0}
 --- !u!114 &9139403150391809610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -429,7 +454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rootObj: {fileID: 328028792750497226}
-  defense: 0
+  defense: 0.5
 --- !u!1001 &3837468987533450260
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -513,6 +538,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2276ec0b7138c6f4a85d76c3f5932a0f, type: 3}
   m_PrefabInstance: {fileID: 3837468987533450260}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1253156363695670013
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4143316500738957637}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4, y: 4, z: 4}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &3438400563807297277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -526,7 +564,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rootObj: {fileID: 328028792750497226}
-  defense: 0
+  defense: 0.25
 --- !u!114 &5713946540069236829
 MonoBehaviour:
   m_ObjectHideFlags: 0

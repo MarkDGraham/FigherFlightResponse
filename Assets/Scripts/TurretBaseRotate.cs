@@ -11,7 +11,7 @@ public class TurretBaseRotate : MonoBehaviour
 
     [SerializeField]
     private float heading = 0.0f;
-    private float turnRate = 25.0f;
+    private float turnRate = 50.0f;
 
     private float desiredHeading = 0.0f;
     public Vector3 eulerRotation = Vector3.zero;

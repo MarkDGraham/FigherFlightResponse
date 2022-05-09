@@ -18,9 +18,10 @@ public class PlayerMgr : MonoBehaviour
 	public float turnRate;
 	public float maxSpeed;
 	public float minSpeed;
-	public float yawSpeed;
 	public float pitchSpeed;
+	public float yawSpeed;
 	public float rollSpeed;
+	private float smoothSpeed = 0.5f;
 
 	public GameObject rotateNode;
 
@@ -34,6 +35,7 @@ public class PlayerMgr : MonoBehaviour
 	public BoxCollider playerBox;
 	public BoxCollider AWOLBox;
 
+	// Objective variables
 	private GameObject targetObject;
 	private Vector3 targetDist;
 
@@ -50,16 +52,16 @@ public class PlayerMgr : MonoBehaviour
 
 	// transitional variables
 	float deltaSpeed;
-	float deltaPitch;
-	float deltaYaw;
-	float deltaRoll;
-	Vector3 currentRotation = Vector3.zero;
+	Vector2 currentRotation = Vector2.zero;
+	public Quaternion targetRotation;		//The rotation we're targeting, not the rotation of the target
+	private Quaternion smoothRotation;
 
 	// Start is called before the first frame update
 	void Start()
     {
 		playerSound = GetComponent<PlayerSfx>();
-		targetObject = GameObject.FindGameObjectWithTag("Finish");	//boss enemies have this tag
+		targetObject = GameObject.FindGameObjectWithTag("Finish");  //boss enemies have this tag
+		targetRotation = transform.rotation;
     }
 
     // Update is called once per frame
@@ -71,15 +73,13 @@ public class PlayerMgr : MonoBehaviour
 		desiredSpeed = Utils.Clamp(desiredSpeed, minSpeed, maxSpeed);
 
 		// Adjust pitch, yaw, roll
-		currentRotation = Vector3.zero;
-		deltaPitch = pitchSpeed * Input.GetAxis("Pitch") * Time.deltaTime;
-		currentRotation.x -= deltaPitch;
-		deltaYaw = yawSpeed * Input.GetAxis("Horizontal") * Time.deltaTime;
-		currentRotation.y += deltaYaw;
-		deltaRoll = rollSpeed * Input.GetAxis("Roll") * Time.deltaTime;
-		currentRotation.z += deltaRoll;
+		currentRotation = Vector2.zero;
+		currentRotation.x -= Input.GetAxis("Pitch");
+		currentRotation.y += Input.GetAxis("Horizontal");
+		Quaternion deltaRotation = Quaternion.Euler(currentRotation.x * pitchSpeed * Time.deltaTime, currentRotation.y * yawSpeed * Time.deltaTime, 0);
+		deltaRotation *= Quaternion.Euler(0, 0, Input.GetAxis("Roll") * rollSpeed * Time.deltaTime);
 
-		rotateNode.transform.Rotate(currentRotation);
+		targetRotation *= deltaRotation;
 
 		//weapon fire	[credit: https://www.youtube.com/watch?v=AGd16aspnPA]
 		if (Input.GetAxis("Fire1") > 0 && Time.time > nextFire) {
@@ -114,6 +114,12 @@ public class PlayerMgr : MonoBehaviour
 		}
 
 		getUIInfo();
+	}
+
+	private void LateUpdate()
+	{
+		smoothRotation = Quaternion.Lerp(transform.rotation, targetRotation, smoothSpeed);
+		rotateNode.transform.rotation = smoothRotation;
 	}
 
 	private IEnumerator ShotEffect() {

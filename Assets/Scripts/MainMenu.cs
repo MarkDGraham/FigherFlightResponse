@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 	public GameObject MenuObj;
 
 	public void PlayButton() {
-		UnityEngine.SceneManagement.SceneManager.LoadScene("LandStage");
+		UnityEngine.SceneManagement.SceneManager.LoadScene("StageSelect");
 	}
 
 	public void ContributionsButton()

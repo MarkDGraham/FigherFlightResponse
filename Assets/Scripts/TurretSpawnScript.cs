@@ -17,7 +17,7 @@ public class TurretSpawnScript : MonoBehaviour
     public TurretBaseRotate turretRotation;
 
     private float distance, relativeSpeed, interceptTime, range;
-    private float targetRange = Mathf.Infinity;
+    private float targetRange = 150.0f;
     private Vector3 predPosition = Vector3.zero;
     private float shellSpeed = 60.0f;
     public float rateOfFire = 1.5f;

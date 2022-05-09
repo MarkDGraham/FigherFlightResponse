@@ -16,11 +16,12 @@ public class TurretSpawnScript : MonoBehaviour
     public PlayerMgr playerScript;
     public TurretBaseRotate turretRotation;
 
-    private float distance, relativeSpeed, interceptTime, range;
-    private float targetRange = 150.0f;
-    private Vector3 predPosition = Vector3.zero;
+    public float distance, relativeSpeed, interceptTime, range;
+    private float targetRange = 250.0f;
+    public Vector3 predPosition = Vector3.zero;
+	public Vector3 shellVelocity;
     private float shellSpeed = 60.0f;
-    public float rateOfFire = 1.5f;
+    public float rateOfFire = 0.5f;
     
     // Start is called before the first frame update
     void Start()
@@ -35,14 +36,18 @@ public class TurretSpawnScript : MonoBehaviour
     {
         range = (player.transform.position - transform.position).magnitude;
 
+		if (rateOfFire > 0.0f)
+			rateOfFire -= Time.deltaTime;
+
         if (turretRotation.isInPosition && (range <= targetRange))
         {
-            rateOfFire -= Time.deltaTime;
             if (rateOfFire <= 0.0f)
             {
                 GameObject shell = Instantiate(projectile, transform.position, transform.rotation);
-                shell.GetComponent<Rigidbody>().velocity = (GetPredictionPosition() - shell.transform.position).normalized * shellSpeed;
-                rateOfFire = 1.5f;
+				shellVelocity = (GetPredictionPosition() - transform.position).normalized * shellSpeed;
+				shell.GetComponent<DestroyOnPlayerHit>().shellVelocity = shellVelocity;
+				Debug.DrawRay(transform.position, shellVelocity, Color.red, 1.0f);
+				rateOfFire = 0.5f;
             }
         }
 

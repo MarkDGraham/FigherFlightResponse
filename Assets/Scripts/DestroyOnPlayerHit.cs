@@ -7,10 +7,13 @@ public class DestroyOnPlayerHit : MonoBehaviour
     public float spawnTimer = 5.0f;
     public Shootable shooter;
     public int gunDamage = 20;
+	public Vector3 shellVelocity;
 
     void Update()
     {
-        spawnTimer -= Time.deltaTime;
+		transform.position += shellVelocity * Time.deltaTime;
+
+		spawnTimer -= Time.deltaTime;
         if (spawnTimer <= 0.0f)
         {
             Destroy(gameObject);

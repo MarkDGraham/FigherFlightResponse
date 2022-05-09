@@ -78,7 +78,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1266716147940981191, guid: 3b3c9c2f0e67add4789268e8526b7407, type: 3}
       propertyPath: m_Name
-      value: EnemyLandTurret
+      value: EnemyLandTurret Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 3438400563807297277, guid: 3b3c9c2f0e67add4789268e8526b7407, type: 3}
+      propertyPath: defense
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 7442887458730281874, guid: 3b3c9c2f0e67add4789268e8526b7407, type: 3}
       propertyPath: m_RootOrder
@@ -123,6 +127,10 @@ PrefabInstance:
     - target: {fileID: 7442887458730281874, guid: 3b3c9c2f0e67add4789268e8526b7407, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9139403150391809610, guid: 3b3c9c2f0e67add4789268e8526b7407, type: 3}
+      propertyPath: defense
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b3c9c2f0e67add4789268e8526b7407, type: 3}

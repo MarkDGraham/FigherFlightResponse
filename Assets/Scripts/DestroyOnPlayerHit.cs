@@ -20,11 +20,12 @@ public class DestroyOnPlayerHit : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision other)
+    void OnTriggerEnter(Collider other)
     {
+		Debug.Log(other.gameObject.tag);
         if (other.gameObject.tag == "Player")
         {
-            shooter = other.gameObject.GetComponent<Shootable>();
+			shooter = other.gameObject.GetComponent<Shootable>();
             if(shooter != null)
             {
                 shooter.Damage(gunDamage);

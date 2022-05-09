@@ -22,7 +22,6 @@ public class DestroyOnPlayerHit : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-		Debug.Log(other.gameObject.tag);
         if (other.gameObject.tag == "Player")
         {
 			shooter = other.gameObject.GetComponent<Shootable>();

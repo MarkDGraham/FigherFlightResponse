@@ -6,14 +6,23 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/WaterStage.unity
-    guid: ac91ab7426380784989e81611c6f2f04
+    path: Assets/Scenes/Main Menu.unity
+    guid: ad801829c54732946b3f66d53f1036e9
+  - enabled: 1
+    path: Assets/Scenes/StageSelect.unity
+    guid: 3e87fca3ec45de14595b34c284201c6d
   - enabled: 1
     path: Assets/Scenes/Contributions.unity
     guid: b2ea29a4d49599047bccfc3635a9d1d6
   - enabled: 1
     path: Assets/Scenes/Controls.unity
     guid: efcb44557a1c42a43828c158a1f78fa0
+  - enabled: 1
+    path: Assets/Scenes/LandStage.unity
+    guid: d7a4db6ed85b10f45a3ef8e5ac9b59d0
+  - enabled: 1
+    path: Assets/Scenes/WaterStage.unity
+    guid: ac91ab7426380784989e81611c6f2f04
   - enabled: 1
     path: Assets/Scenes/GameOverAWOL.unity
     guid: cc13e565e503b3e42bd22db341b9d149
@@ -23,10 +32,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameOverDestroyed.unity
     guid: 528d777e9b2a76449bb5985412aef883
-  - enabled: 1
-    path: Assets/Scenes/LandStage.unity
-    guid: d7a4db6ed85b10f45a3ef8e5ac9b59d0
-  - enabled: 1
-    path: Assets/Scenes/Main Menu.unity
-    guid: ad801829c54732946b3f66d53f1036e9
   m_configObjects: {}

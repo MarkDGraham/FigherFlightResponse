@@ -55,7 +55,7 @@ MonoBehaviour:
   desiredSpeed: 1
   acceleration: 10
   turnRate: 10
-  maxSpeed: 38
+  maxSpeed: 50
   minSpeed: 10
   pitchSpeed: 75
   yawSpeed: 75

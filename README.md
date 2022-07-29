@@ -21,17 +21,17 @@ enemy targeting, contributions and control screen, and designing the water level
 
 <a name="notable"> <b>Notable Contributions:</b></a> <br />
 • John Busse: <br />
-  • Start Menu <br />
-  • End Game states <br />
-  • Player Controls <br />
-  • Land stage <br />
-  • Player UI <br />
-  • Major Enemy <br />
+&emsp;• Start Menu <br />
+&emsp;• End Game states <br />
+&emsp;• Player Controls <br />
+&emsp;• Land stage <br />
+&emsp;• Player UI <br />
+&emsp;• Major Enemy <br />
 • Mark Graham: <br />
-  • Controls Menu <br />
-  • Water Stage <br />
-  • Enemy Design <br />
-  • Enemy AI <br />
+&emsp;• Controls Menu <br />
+&emsp;• Water Stage <br />
+&emsp;• Enemy Design <br />
+&emsp;• Enemy AI <br />
 
 <a name="controls"><b>Controls:</b></a> <br />
 • "W" -  <br />
